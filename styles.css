@@ -9,7 +9,7 @@
 {
     --soft_blue: hsl(215, 51%, 70%);
     --cyan: hsl(178, 100%, 50%);
-    
+
     --very_dark_blue_mainBG: hsl(217, 54%, 11%);
     --very_dark_blue_cardBG: hsl(216, 50%, 16%);
     --very_dark_blue_line: hsl(215, 32%, 27%);
@@ -30,7 +30,7 @@ body
     flex-wrap: wrap;
     gap: 20px;
 }
-
+/*place image card -----------------*/
 .container__card
 {
     width: 300px;
@@ -55,9 +55,10 @@ body
     width: 100%;
     transition: .5s ease;
 }
-
-.overlay__background
+/*overlay background cyan -----------*/
+.container__card__img::before
 {
+    content: "";
     position: absolute;
     width: 100%;
     height: 100%;
@@ -66,7 +67,7 @@ body
     background-color: var(--cyan);
     opacity: 0;
 }
-
+/*overlay icon view ----------*/
 .overlay__img
 {
     position: absolute;
@@ -76,21 +77,22 @@ body
     opacity: 0;
 }
 
-.container__card__img:hover .overlay__background
+.container__card__img:hover::before
 {
-    cursor: pointer;
-    opacity: 0.5;
+  opacity: .5;
+  cursor: pointer;
 }
 
 .container__card__img:hover  .overlay__img
 {
     opacity: 1;
     cursor: pointer;
+    z-index: 1;
 }
-
+/*text ------------------------*/
 .container__card__text
 {
-    padding-top: 20px; 
+    padding-top: 20px;
     height: 100%;
     color: var(--soft_blue);
     display: flex;
@@ -109,18 +111,31 @@ body
     color: var(--cyan);
     cursor: pointer;
 }
-
+/*container eth and date ------*/
 .card__item
 {
     display: flex;
     justify-content: space-between;
+}
+/*ethereum ----------------------*/
+.ethereum
+{
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+  align-items: center;
+}
+
+.eth-icon
+{
+  padding: 4px;
 }
 
 .eth
 {
     color: var(--cyan);
 }
-
+/*date -------------------------*/
 .date
 {
     display: flex;
@@ -133,7 +148,7 @@ body
 {
     margin: 3px;
 }
-
+/* user --------------------------*/
 .card__user
 {
     border-top: 1px solid var(--very_dark_blue_line);
